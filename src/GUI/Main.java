@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application implements EventHandler<ActionEvent> {
 
+
+    Stage window;
     Button close;
 
     public static void main(String[] args) {
@@ -20,8 +22,10 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        window = primaryStage;
+
         Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
-        primaryStage.setTitle("Hello World");
+        window.setTitle("Hello World");
 
         close = new Button();
         close.setText("Close");
@@ -30,15 +34,14 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         StackPane layout = new StackPane();
         layout.getChildren().add(close);
 
-        primaryStage.setScene(new Scene(layout, 300, 275));
-
-        primaryStage.show();
+        window.setScene(new Scene(layout, 300, 275));
+        window.show();
     }
 
     @Override
     public void handle(ActionEvent evt) {
         if(evt.getSource() == close) {
-            System.exit(0);
+            window.close();
         }
     }
 }
