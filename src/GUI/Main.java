@@ -1,47 +1,28 @@
 package GUI;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class Main extends Application implements EventHandler<ActionEvent> {
-
-
-    Stage window;
-    Button close;
+public class Main extends Application {
 
     public static void main(String[] args) {
-        launch(args);
+        Application.launch(Main.class, (java.lang.String[])null);
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        window = primaryStage;
-
-        Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
-        window.setTitle("Hello World");
-
-        close = new Button();
-        close.setText("Close");
-        close.setOnAction(this);
-
-        StackPane layout = new StackPane();
-        layout.getChildren().add(close);
-
-        window.setScene(new Scene(layout, 300, 275));
-        window.show();
-    }
-
-    @Override
-    public void handle(ActionEvent evt) {
-        if(evt.getSource() == close) {
-            window.close();
+    public void start(Stage primaryStage) {
+        try {
+            Pane root = FXMLLoader.load(getClass().getResource("gui.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
