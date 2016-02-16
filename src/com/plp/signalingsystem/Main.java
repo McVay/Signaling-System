@@ -1,7 +1,8 @@
-package GUI;
+package com.plp.signalingsystem;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,6 +22,13 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
+
+
+            //THIS IS TESTING CODE TO SHOW FUNCTIONALITY OF GSON///////////////
+            TrafficLightController trafficLight = new TrafficLightController();
+            trafficLight.convertToJson();
+            ///////////////////////////////////////////////////////////////////
+
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

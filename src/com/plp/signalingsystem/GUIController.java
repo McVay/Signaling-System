@@ -1,5 +1,5 @@
 
-package GUI;
+package com.plp.signalingsystem;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.util.StringConverter;
 
-public class Controller implements Initializable {
+public class GUIController implements Initializable {
 
     @FXML
     private ToggleButton toggleSwitch;
