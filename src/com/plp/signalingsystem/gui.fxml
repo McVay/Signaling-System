@@ -5,21 +5,21 @@
 <?import javafx.scene.control.*?>
 
 <SplitPane dividerPositions="0.7642140468227425" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plp.signalingsystem.GUIController">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-         <children>
-            <TextField id="carNumText" fx:id="carNumText" layoutX="97.0" layoutY="29.0" prefHeight="25.0" prefWidth="35.0" text="100" />
-            <Slider id="carNumSlider" fx:id="carNumSlider" layoutX="5.0" layoutY="34.0" prefHeight="14.0" prefWidth="92.0" />
-            <Text layoutX="34.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# of Cars" wrappingWidth="67.13671875" />
-            <Text layoutX="33.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Scale" wrappingWidth="67.13671875" />
-            <Slider id="timeScaleSlider" fx:id="timeScaleSlider" layoutX="5.0" layoutY="73.0" prefHeight="14.0" prefWidth="92.0" />
-            <TextField id="timeScaleText" fx:id="timeScaleText" layoutX="96.0" layoutY="67.0" prefHeight="25.0" prefWidth="35.0" text="2" />
-            <ToggleButton id="toggleSwitch" fx:id="toggleSwitch" layoutX="18.0" layoutY="365.0" mnemonicParsing="false" text="Start Simulation" />
-            <Text layoutX="41.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-            <TextField id="lightIntervalText" fx:id="lightIntervalText" layoutX="97.0" layoutY="107.0" prefHeight="25.0" prefWidth="35.0" text="2" />
-            <Slider id="lightIntervalSlider" fx:id="lightIntervalSlider" layoutX="6.0" layoutY="113.0" prefHeight="14.0" prefWidth="92.0" />
-            <Text layoutX="26.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Light Interval" wrappingWidth="82.13671875" />
-         </children></AnchorPane>
-  </items>
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <TextField id="carNumText" fx:id="carNumText" layoutX="97.0" layoutY="29.0" prefHeight="25.0" prefWidth="35.0" text="100" />
+                <Slider id="carNumSlider" fx:id="carNumSlider" layoutX="5.0" layoutY="34.0" prefHeight="14.0" prefWidth="92.0" />
+                <Text layoutX="34.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# of Cars" wrappingWidth="67.13671875" />
+                <Text layoutX="33.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Scale" wrappingWidth="67.13671875" />
+                <Slider id="timeScaleSlider" fx:id="timeScaleSlider" layoutX="5.0" layoutY="73.0" prefHeight="14.0" prefWidth="92.0" />
+                <TextField id="timeScaleText" fx:id="timeScaleText" layoutX="96.0" layoutY="67.0" prefHeight="25.0" prefWidth="35.0" text="2" />
+                <ToggleButton id="toggleSwitch" fx:id="toggleSwitch" layoutX="18.0" layoutY="365.0" mnemonicParsing="false" text="Start Simulation" />
+                <Text layoutX="41.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <TextField id="lightIntervalText" fx:id="lightIntervalText" layoutX="97.0" layoutY="107.0" prefHeight="25.0" prefWidth="35.0" text="2" />
+                <Slider id="lightIntervalSlider" fx:id="lightIntervalSlider" layoutX="6.0" layoutY="113.0" prefHeight="14.0" prefWidth="92.0" />
+                <Text layoutX="26.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Light Interval" wrappingWidth="82.13671875" />
+            </children></AnchorPane>
+    </items>
 </SplitPane>
