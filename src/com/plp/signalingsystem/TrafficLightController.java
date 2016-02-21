@@ -12,5 +12,8 @@ public class TrafficLightController {
 
         String json = gson.toJson(testToJson);
         System.out.println("JSON: " + json);
+
+        TrafficLight testFromJSON = gson.fromJson(json, TrafficLight.class);
+        System.out.println("Timing Interval: " + testFromJSON.timingInterval +"\nLight Status: " + testFromJSON.status + "\nDirection: " + testFromJSON.direction);
     }
 }
