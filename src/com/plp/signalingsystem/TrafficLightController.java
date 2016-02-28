@@ -31,7 +31,7 @@ public class TrafficLightController {
 
         simulationIsOn = true;
         Intersection intersection = initializeIntersections();
-        TrafficLight currentLight = new TrafficLight("", 0, LightStatus.RED, Direction.NORTH);
+        TrafficLight currentLight = new TrafficLight();
 
         for (TrafficLight t : intersection.lights) {
             if (t.status == LightStatus.GREEN) {
