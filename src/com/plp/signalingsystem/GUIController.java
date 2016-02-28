@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -34,8 +35,10 @@ public class GUIController implements Initializable {
     @FXML
     private TextField lightIntervalText;
 
+    TrafficLightController trafficLightController = new TrafficLightController();
+
     @Override
-    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+    public void initialize(URL fxmlFileLocation, ResourceBundle resources)  {
 
         carNumText.textProperty().bindBidirectional(carNumSlider.valueProperty(), getStringConverter(carNumSlider,carNumText));
         timeScaleText.textProperty().bindBidirectional(timeScaleSlider.valueProperty(), getStringConverter(timeScaleSlider, timeScaleText));
@@ -43,17 +46,23 @@ public class GUIController implements Initializable {
 
         toggleSwitch.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(ActionEvent event) {
+            public void handle(ActionEvent event){
                 boolean selected = toggleSwitch.isSelected();
-                if(selected)
+                if(selected) {
                     toggleSwitch.setText("Stop Simulation");
-                else
-                    toggleSwitch.setText("Start Simulation");
+                    trafficLightController.startSimulation();
+                }
 
-                System.out.println("Simulation Status: " + toggleSwitch.isSelected());
+
+                else
+                {
+                    trafficLightController.stopSimulation();
+                    toggleSwitch.setText("Start Simulation");
+                }
             }
         });
     }
+
 
     public Boolean isNumber(String input) {
         return new Scanner(input).hasNextInt();
