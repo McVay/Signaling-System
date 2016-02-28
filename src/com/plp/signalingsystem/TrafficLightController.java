@@ -7,7 +7,7 @@ import com.plp.signalingsystem.model.TrafficLight;
 import java.util.ArrayList;
 
 public class TrafficLightController {
-    boolean simulationIsOn = false;
+    volatile boolean simulationIsOn = false;
     LightStatusThread thread = new LightStatusThread();
 
     public Intersection initializeIntersections() {
