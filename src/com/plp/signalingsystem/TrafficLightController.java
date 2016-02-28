@@ -65,6 +65,8 @@ public class TrafficLightController {
             while (simulationIsOn) {
                 int max = lights.size();
                 try {
+                    printLightStatus(currentLight);
+
                     Thread.sleep(currentLight.timingInterval * 1000);
                     currentLight.status = LightStatus.YELLOW;
                     printLightStatus(currentLight);
@@ -83,7 +85,6 @@ public class TrafficLightController {
                     currentLight = lights.get(index);
                     currentLight.status = LightStatus.GREEN;
 
-                    printLightStatus(currentLight);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 }
