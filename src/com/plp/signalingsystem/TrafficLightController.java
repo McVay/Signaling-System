@@ -39,8 +39,6 @@ public class TrafficLightController {
                 break;
             }
         }
-
-        printLightStatus(currentLight);
         thread = new LightStatusThread(currentLight,intersection.lights);
         thread.start();
     }
