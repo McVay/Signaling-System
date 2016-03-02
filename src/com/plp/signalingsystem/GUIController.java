@@ -59,6 +59,7 @@ public class GUIController implements Initializable {
                     trafficLightController.stopSimulation();
                     toggleSwitch.setText("Start Simulation");
                 }
+
             }
         });
     }
