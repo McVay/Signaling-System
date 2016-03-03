@@ -26,7 +26,6 @@ public class Main extends Application {
                 try {
                     SplitPane root = FXMLLoader.load(getClass().getResource("gui.fxml"));
                     Scene scene = new Scene(root);
-                    scene.getStylesheets().addAll(this.getClass().getResource("styles/styles.css").toExternalForm());
                     primaryStage.setScene(scene);
                     primaryStage.show();
                 } catch (Exception ex) {
