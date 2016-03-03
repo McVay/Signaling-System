@@ -1,19 +1,19 @@
 package com.plp.signalingsystem.model;
 
 public class TrafficLight {
-    public final String name;
-    public int timingInterval;
-    public LightStatus status;
-    public final Direction direction;
+    public final String Name;
+    public int TimingInterval;
+    public LightStatus Status;
+    public final Direction LightDirection;
 
     public TrafficLight() {
-        this.name = "";
-        this.direction = Direction.NULL;
+        this.Name = "";
+        this.LightDirection = Direction.NULL;
     }
     public TrafficLight(String name, int timingInterval, LightStatus status, Direction direction) {
-        this.name = name;
-        this.timingInterval = timingInterval;
-        this.status = status;
-        this.direction = direction;
+        this.Name = name;
+        this.TimingInterval = timingInterval;
+        this.Status = status;
+        this.LightDirection = direction;
     }
 }

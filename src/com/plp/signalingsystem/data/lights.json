@@ -1,0 +1,60 @@
+[
+  {
+    "IntersectionName":"Eastern Intersection",
+    "Lights":[
+      {
+        "Name":"E Northbound Light",
+        "TimingInterval":30,
+        "Status":"GREEN",
+        "LightDirection":"NORTH"
+      },
+      {
+        "Name":"E Southbound Light",
+        "TimingInterval":30,
+        "Status":"RED",
+        "LightDirection":"SOUTH"
+      },
+      {
+        "Name":"E Eastbound Light",
+        "TimingInterval":10,
+        "Status":"RED",
+        "LightDirection":"EAST"
+      },
+      {
+        "Name":"E Westbound Light",
+        "TimingInterval":10,
+        "Status":"RED",
+        "LightDirection":"WEST"
+      }
+    ]
+  },
+  {
+    "IntersectionName":"Western Intersection",
+    "Lights":[
+      {
+        "Name":"W Northbound Light",
+        "TimingInterval":30,
+        "Status":"RED",
+        "LightDirection":"NORTH"
+      },
+      {
+        "Name":"W Southbound Light",
+        "TimingInterval":30,
+        "Status":"RED",
+        "LightDirection":"SOUTH"
+      },
+      {
+        "Name":"W Eastbound Light",
+        "TimingInterval":10,
+        "Status":"GREEN",
+        "LightDirection":"EAST"
+      },
+      {
+        "Name":"W Westbound Light",
+        "TimingInterval":10,
+        "Status":"RED",
+        "LightDirection":"WEST"
+      }
+    ]
+  }
+]

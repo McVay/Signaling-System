@@ -1,46 +1,51 @@
 package com.plp.signalingsystem;
-import com.plp.signalingsystem.model.Direction;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.plp.signalingsystem.model.Intersection;
 import com.plp.signalingsystem.model.LightStatus;
 import com.plp.signalingsystem.model.TrafficLight;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 public class TrafficLightController {
     volatile boolean simulationIsOn = false;
-    LightStatusThread thread = new LightStatusThread();
 
-    public Intersection initializeIntersections() {
+    public ArrayList<Intersection> initializeIntersections() {
 
-        TrafficLight northBound = new TrafficLight("Northbound Light", 30,LightStatus.GREEN,  Direction.NORTH);
-        TrafficLight southBound = new TrafficLight("Southbound Light", 30,LightStatus.RED,  Direction.SOUTH);
-        TrafficLight eastBound = new TrafficLight("Eastbound Light", 10,LightStatus.RED,  Direction.EAST);
-        TrafficLight westBound = new TrafficLight("Westbound Light", 10,LightStatus.RED,  Direction.WEST);
+        Gson GsonConverter = new Gson();
 
-        ArrayList<TrafficLight> intersectionLights = new ArrayList<TrafficLight>();
+        try {
+            String currentDir = System.getProperties().getProperty("user.dir");
+            JsonReader reader = new JsonReader(new FileReader(currentDir + "\\src\\com\\plp\\signalingsystem\\data\\lights.json"));
+            return  GsonConverter.fromJson(reader, new TypeToken<ArrayList<Intersection>>() {}.getType());
+        }
+        catch (FileNotFoundException ex) {
+            ex.getCause();
+            System.out.println("Light configuration file not found.\nStopping simulation.");
+            stopSimulation();
+        }
 
-        intersectionLights.add(northBound);
-        intersectionLights.add(southBound);
-        intersectionLights.add(eastBound);
-        intersectionLights.add(westBound);
-
-        return new Intersection("Four Way Intersection", intersectionLights);
+        return null;
     }
 
     public void startSimulation(){
 
         simulationIsOn = true;
-        Intersection intersection = initializeIntersections();
-        TrafficLight currentLight = new TrafficLight();
 
-        for (TrafficLight t : intersection.lights) {
-            if (t.status == LightStatus.GREEN) {
-                currentLight = t;
-                break;
+        ArrayList<Intersection> intersection = initializeIntersections();
+        for(Intersection i: intersection){
+            for(TrafficLight l: i.Lights){
+                if(l.Status == LightStatus.GREEN){
+                    i.CurrentLight = l;
+                    break;
+                }
             }
+            LightStatusThread thread = new LightStatusThread(i.CurrentLight, i.Lights);
+            thread.start();
         }
-        thread = new LightStatusThread(currentLight,intersection.lights);
-        thread.start();
     }
 
     public void stopSimulation(){
@@ -65,13 +70,13 @@ public class TrafficLightController {
                 try {
                     printLightStatus(currentLight);
 
-                    Thread.sleep(currentLight.timingInterval * 1000);
-                    currentLight.status = LightStatus.YELLOW;
+                    Thread.sleep(currentLight.TimingInterval * 1000);
+                    currentLight.Status = LightStatus.YELLOW;
                     printLightStatus(currentLight);
 
                     Thread.sleep(3000);
 
-                    currentLight.status = LightStatus.RED;
+                    currentLight.Status = LightStatus.RED;
                     printLightStatus(currentLight);
 
                     int index = lights.indexOf(currentLight);
@@ -81,7 +86,7 @@ public class TrafficLightController {
                         index = 0;
 
                     currentLight = lights.get(index);
-                    currentLight.status = LightStatus.GREEN;
+                    currentLight.Status = LightStatus.GREEN;
 
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
@@ -91,6 +96,6 @@ public class TrafficLightController {
     }
 
     public void printLightStatus(TrafficLight light){
-            System.out.println(light.name + ": " + light.status);
+            System.out.println(light.Name + ": " + light.Status);
     }
 }
