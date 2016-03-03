@@ -26,25 +26,13 @@ public class GUIController implements Initializable {
     private ToggleButton toggleSwitch;
 
     @FXML
-    private Slider carNumSlider;
-
-    @FXML
-    private TextField carNumText;
-
-    @FXML
     private Slider timeScaleSlider;
 
     @FXML
     private TextField timeScaleText;
 
     @FXML
-    private Slider lightIntervalSlider;
-
-    @FXML
-    private TextField lightIntervalText;
-
-    @FXML
-    private SplitPane splittedPane;
+    private SplitPane splitPane;
 
     @FXML
     private GridPane grid;
@@ -55,12 +43,10 @@ public class GUIController implements Initializable {
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)  {
 
-        splittedPane.setStyle("-fx-background-color: #009933;");
+        splitPane.setStyle("-fx-background-color: #009933;");
         grid.setStyle("-fx-background-color: #FFFFFD;");
 
-        carNumText.textProperty().bindBidirectional(carNumSlider.valueProperty(), getStringConverter(carNumSlider,carNumText));
         timeScaleText.textProperty().bindBidirectional(timeScaleSlider.valueProperty(), getStringConverter(timeScaleSlider, timeScaleText));
-        lightIntervalText.textProperty().bindBidirectional(lightIntervalSlider.valueProperty(), getStringConverter(lightIntervalSlider, lightIntervalText));
 
         toggleSwitch.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -71,7 +57,6 @@ public class GUIController implements Initializable {
                     trafficLightController.startSimulation();
                 }
 
-
                 else
                 {
                     trafficLightController.stopSimulation();
@@ -81,7 +66,6 @@ public class GUIController implements Initializable {
             }
         });
     }
-
 
     public Boolean isNumber(String input) {
         return new Scanner(input).hasNextInt();
