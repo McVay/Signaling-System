@@ -31,19 +31,23 @@ public class TrafficLightController {
         return null;
     }
 
-    public void startSimulation(){
+    public void startSimulation(GUIController GUI) {
 
         simulationIsOn = true;
 
         ArrayList<Intersection> intersection = initializeIntersections();
         for(Intersection i: intersection){
-            for(TrafficLight l: i.Lights){
-                if(l.Status == LightStatus.GREEN){
-                    i.CurrentLight = l;
-                    break;
+            for(TrafficLight l: i.getLights()){
+                if(l.Status == LightStatus.Green){
+                    i.setCurrentLight(l);
+                }
+                try {
+                    GUI.changeLightColor(l);
+                } catch (ClassNotFoundException ex) {
+                    System.out.println(ex.getMessage());
                 }
             }
-            LightStatusThread thread = new LightStatusThread(i.CurrentLight, i.Lights);
+            LightStatusThread thread = new LightStatusThread(i.getCurrentLight(), i.getLights(), GUI);
             thread.start();
         }
     }
@@ -55,12 +59,14 @@ public class TrafficLightController {
     public class LightStatusThread extends Thread {
         private TrafficLight currentLight;
         private  ArrayList<TrafficLight> lights;
+        private GUIController GUI;
 
         public LightStatusThread(){ }
 
-        public LightStatusThread(TrafficLight currentLight, ArrayList<TrafficLight> lights){
+        public LightStatusThread(TrafficLight currentLight, ArrayList<TrafficLight> lights, GUIController GUI){
             this.currentLight = currentLight;
             this.lights = lights;
+            this.GUI = GUI;
         }
 
         @Override
@@ -68,16 +74,16 @@ public class TrafficLightController {
             while (simulationIsOn) {
                 int max = lights.size();
                 try {
-                    printLightStatus(currentLight);
+                    GUI.changeLightColor(currentLight);
 
                     Thread.sleep(currentLight.TimingInterval * 1000);
-                    currentLight.Status = LightStatus.YELLOW;
-                    printLightStatus(currentLight);
+                    currentLight.Status = LightStatus.Yellow;
+                    GUI.changeLightColor(currentLight);
 
                     Thread.sleep(3000);
 
-                    currentLight.Status = LightStatus.RED;
-                    printLightStatus(currentLight);
+                    currentLight.Status = LightStatus.Red;
+                    GUI.changeLightColor(currentLight);
 
                     int index = lights.indexOf(currentLight);
                     index++;
@@ -86,10 +92,11 @@ public class TrafficLightController {
                         index = 0;
 
                     currentLight = lights.get(index);
-                    currentLight.Status = LightStatus.GREEN;
-
+                    currentLight.Status = LightStatus.Green;
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
+                } catch (ClassNotFoundException ex) {
+                    System.out.println(ex.getMessage());
                 }
             }
         }

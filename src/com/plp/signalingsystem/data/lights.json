@@ -1,58 +1,58 @@
 [
   {
-    "IntersectionName":"Eastern Intersection",
-    "Lights":[
+    "mIntersectionName":"Eastern Intersection",
+    "mLights":[
       {
-        "Name":"E Northbound Light",
+        "Name":"StoplightA",
         "TimingInterval":30,
-        "Status":"GREEN",
+        "Status":"Green",
         "LightDirection":"NORTH"
       },
       {
-        "Name":"E Southbound Light",
+        "Name":"StoplightB",
         "TimingInterval":30,
-        "Status":"RED",
+        "Status":"Red",
         "LightDirection":"SOUTH"
       },
       {
-        "Name":"E Eastbound Light",
+        "Name":"StoplightC",
         "TimingInterval":10,
-        "Status":"RED",
+        "Status":"Red",
         "LightDirection":"EAST"
       },
       {
-        "Name":"E Westbound Light",
+        "Name":"StoplightD",
         "TimingInterval":10,
-        "Status":"RED",
+        "Status":"Red",
         "LightDirection":"WEST"
       }
     ]
   },
   {
-    "IntersectionName":"Western Intersection",
-    "Lights":[
+    "mIntersectionName":"Western Intersection",
+    "mLights":[
       {
-        "Name":"W Northbound Light",
+        "Name":"StoplightF",
         "TimingInterval":30,
-        "Status":"RED",
+        "Status":"Red",
         "LightDirection":"NORTH"
       },
       {
-        "Name":"W Southbound Light",
+        "Name":"StoplightG",
         "TimingInterval":30,
-        "Status":"RED",
+        "Status":"Red",
         "LightDirection":"SOUTH"
       },
       {
-        "Name":"W Eastbound Light",
+        "Name":"StoplightH",
         "TimingInterval":10,
-        "Status":"GREEN",
+        "Status":"Green",
         "LightDirection":"EAST"
       },
       {
-        "Name":"W Westbound Light",
+        "Name":"StoplightI",
         "TimingInterval":10,
-        "Status":"RED",
+        "Status":"Red",
         "LightDirection":"WEST"
       }
     ]
