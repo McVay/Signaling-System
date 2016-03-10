@@ -11,9 +11,14 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class TrafficLightController {
+    private GUIController GUI;
     volatile boolean simulationIsOn = false;
-    int mTimeScale = 1;
+    volatile int mTimeScale = 1;
 
+
+    TrafficLightController(GUIController gui) {
+        this.GUI = gui;
+    }
     public void setTimeScale(int scale)
     {
         this.mTimeScale = scale;
@@ -37,7 +42,7 @@ public class TrafficLightController {
         return null;
     }
 
-    public void startSimulation(GUIController GUI) {
+    public void startSimulation() {
 
         simulationIsOn = true;
 
@@ -53,24 +58,23 @@ public class TrafficLightController {
                     System.out.println(ex.getMessage());
                 }
             }
-            LightStatusThread thread = new LightStatusThread(i.getCurrentLight(), i.getLights(), GUI);
+            LightStatusThread thread = new LightStatusThread(i.getCurrentLight(), i.getLights());
             thread.start();
         }
     }
 
     public void stopSimulation(){
         simulationIsOn = false;
+        GUI.turnAllLightsOff();
     }
 
     public class LightStatusThread extends Thread {
         private TrafficLight currentLight;
         private  ArrayList<TrafficLight> lights;
-        private GUIController GUI;
 
-        public LightStatusThread(TrafficLight currentLight, ArrayList<TrafficLight> lights, GUIController GUI){
+        public LightStatusThread(TrafficLight currentLight, ArrayList<TrafficLight> lights){
             this.currentLight = currentLight;
             this.lights = lights;
-            this.GUI = GUI;
         }
 
         @Override
@@ -80,25 +84,42 @@ public class TrafficLightController {
                 try {
                     GUI.changeLightColor(currentLight);
 
-                    Thread.sleep((currentLight.getTimingInterval() * 1000)/mTimeScale);
-                    currentLight.setStatus(LightStatus.Yellow);
-                    GUI.changeLightColor(currentLight);
+                    long timeGreen = System.currentTimeMillis();
+                    while(true) {
+                        if(!simulationIsOn) {
+                            return;
+                        }
+                        long duration = System.currentTimeMillis() - timeGreen;
+                        if(duration >= currentLight.getTimingInterval() * 1000/mTimeScale) {
+                            currentLight.setStatus(LightStatus.Yellow);
+                            GUI.changeLightColor(currentLight);
+                            break;
+                        }
+                    }
 
-                    Thread.sleep(3000/mTimeScale);
+                    long timeYellow = System.currentTimeMillis();
+                    while(true) {
+                        if(!simulationIsOn) {
+                            return;
+                        }
+                        long duration = System.currentTimeMillis() - timeYellow;
+                        if(duration >= 3000/mTimeScale) {
+                            currentLight.setStatus(LightStatus.Red);
+                            GUI.changeLightColor(currentLight);
+                            break;
+                        }
+                    }
 
-                    currentLight.setStatus(LightStatus.Red);
-                    GUI.changeLightColor(currentLight);
+                    if(simulationIsOn) {
+                        int index = lights.indexOf(currentLight);
+                        index++;
 
-                    int index = lights.indexOf(currentLight);
-                    index++;
+                        if (index >= max)
+                            index = 0;
 
-                    if (index >= max)
-                        index = 0;
-
-                    currentLight = lights.get(index);
-                    currentLight.setStatus(LightStatus.Green);
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
+                        currentLight = lights.get(index);
+                        currentLight.setStatus(LightStatus.Green);
+                    }
                 } catch (ClassNotFoundException ex) {
                     System.out.println(ex.getMessage());
                 }

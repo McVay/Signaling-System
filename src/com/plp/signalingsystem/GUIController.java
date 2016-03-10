@@ -50,7 +50,7 @@ public class GUIController implements Initializable {
 
     Map<String, StoplightUIElement> VALUES_BY_NAME;
 
-    TrafficLightController trafficLightController = new TrafficLightController();
+    TrafficLightController trafficLightController = new TrafficLightController(GUIController.this);
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)  {
@@ -67,7 +67,7 @@ public class GUIController implements Initializable {
                 boolean selected = toggleSwitch.isSelected();
                 if(selected) {
                     toggleSwitch.setText("Stop Simulation");
-                    trafficLightController.startSimulation(GUIController.this);
+                    trafficLightController.startSimulation();
                 }
 
                 else
@@ -146,6 +146,18 @@ public class GUIController implements Initializable {
         }
         if(thisLight.getRoadLight() != null) {
             thisLight.getRoadLight().setImage(image);
+        }
+    }
+    public void turnAllLightsOff() {
+        Image image = new Image("com/plp/signalingsystem/pictures/Off.png");
+
+        for(StoplightUIElement e: VALUES_BY_NAME.values()) {
+            if(e.getGridLight() != null) {
+                e.getGridLight().setImage(image);
+            }
+            if(e.getRoadLight() != null) {
+                e.getRoadLight().setImage(image);
+            }
         }
     }
 }
