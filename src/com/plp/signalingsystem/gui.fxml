@@ -276,7 +276,7 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
                 <Text layoutX="33.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Scale" wrappingWidth="67.13671875" />
-                <Slider id="timeScaleSlider" fx:id="timeScaleSlider" layoutX="5.0" layoutY="32.0" prefHeight="14.0" prefWidth="92.0" />
+                <Slider id="timeScaleSlider" fx:id="timeScaleSlider" layoutX="5.0" layoutY="32.0" prefHeight="14.0" prefWidth="92.0" min="1" max="10" />
                 <TextField id="timeScaleText" fx:id="timeScaleText" layoutX="96.0" layoutY="26.0" prefHeight="25.0" prefWidth="35.0" text="2" />
                 <ToggleButton id="toggleSwitch" fx:id="toggleSwitch" layoutX="26.0" layoutY="462.0" mnemonicParsing="false" text="Start Simulation" />
                 <Text layoutX="41.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" />

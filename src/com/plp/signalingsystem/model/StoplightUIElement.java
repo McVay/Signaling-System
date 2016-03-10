@@ -1,15 +1,28 @@
 package com.plp.signalingsystem.model;
 import javafx.scene.image.ImageView;
 
-/**
- * Created by Dylan on 3/4/2016.
- */
 public class StoplightUIElement {
-    public ImageView GridLight;
-    public ImageView RoadLight;
+    private ImageView mGridLight;
+    private ImageView mRoadLight;
 
     public StoplightUIElement(ImageView gridLight, ImageView roadLight){
-        this.GridLight = gridLight;
-        this.RoadLight = roadLight;
+        this.mGridLight = gridLight;
+        this.mRoadLight = roadLight;
+    }
+
+    public ImageView getGridLight() {
+        return mGridLight;
+    }
+
+    public void setGridLight(ImageView gridLight) {
+        mGridLight = gridLight;
+    }
+
+    public ImageView getRoadLight() {
+        return mRoadLight;
+    }
+
+    public void setRoadLight(ImageView roadLight) {
+        mRoadLight = roadLight;
     }
 }

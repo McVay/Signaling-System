@@ -3,28 +3,28 @@
     "mIntersectionName":"Eastern Intersection",
     "mLights":[
       {
-        "Name":"StoplightA",
-        "TimingInterval":30,
-        "Status":"Green",
-        "LightDirection":"NORTH"
+        "mName":"StoplightA",
+        "mTimingInterval":30,
+        "mStatus":"Green",
+        "mLightDirection":"NORTH"
       },
       {
-        "Name":"StoplightB",
-        "TimingInterval":30,
-        "Status":"Red",
-        "LightDirection":"SOUTH"
+        "mName":"StoplightB",
+        "mTimingInterval":30,
+        "mStatus":"Red",
+        "mLightDirection":"SOUTH"
       },
       {
-        "Name":"StoplightC",
-        "TimingInterval":10,
-        "Status":"Red",
-        "LightDirection":"EAST"
+        "mName":"StoplightC",
+        "mTimingInterval":10,
+        "mStatus":"Red",
+        "mLightDirection":"EAST"
       },
       {
-        "Name":"StoplightD",
-        "TimingInterval":10,
-        "Status":"Red",
-        "LightDirection":"WEST"
+        "mName":"StoplightD",
+        "mTimingInterval":10,
+        "mStatus":"Red",
+        "mLightDirection":"WEST"
       }
     ]
   },
@@ -32,28 +32,28 @@
     "mIntersectionName":"Western Intersection",
     "mLights":[
       {
-        "Name":"StoplightF",
-        "TimingInterval":30,
-        "Status":"Red",
-        "LightDirection":"NORTH"
+        "mName":"StoplightF",
+        "mTimingInterval":30,
+        "mStatus":"Red",
+        "mLightDirection":"NORTH"
       },
       {
-        "Name":"StoplightG",
-        "TimingInterval":30,
-        "Status":"Red",
-        "LightDirection":"SOUTH"
+        "mName":"StoplightG",
+        "mTimingInterval":30,
+        "mStatus":"Red",
+        "mLightDirection":"SOUTH"
       },
       {
-        "Name":"StoplightH",
-        "TimingInterval":10,
-        "Status":"Green",
-        "LightDirection":"EAST"
+        "mName":"StoplightH",
+        "mTimingInterval":10,
+        "mStatus":"Green",
+        "mLightDirection":"EAST"
       },
       {
-        "Name":"StoplightI",
-        "TimingInterval":10,
-        "Status":"Red",
-        "LightDirection":"WEST"
+        "mName":"StoplightI",
+        "mTimingInterval":10,
+        "mStatus":"Red",
+        "mLightDirection":"WEST"
       }
     ]
   }

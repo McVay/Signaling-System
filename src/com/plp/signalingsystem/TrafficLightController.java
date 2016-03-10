@@ -12,6 +12,12 @@ import java.util.ArrayList;
 
 public class TrafficLightController {
     volatile boolean simulationIsOn = false;
+    int mTimeScale = 1;
+
+    public void setTimeScale(int scale)
+    {
+        this.mTimeScale = scale;
+    }
 
     public ArrayList<Intersection> initializeIntersections() {
 
@@ -38,7 +44,7 @@ public class TrafficLightController {
         ArrayList<Intersection> intersection = initializeIntersections();
         for(Intersection i: intersection){
             for(TrafficLight l: i.getLights()){
-                if(l.Status == LightStatus.Green){
+                if(l.getStatus() == LightStatus.Green){
                     i.setCurrentLight(l);
                 }
                 try {
@@ -61,8 +67,6 @@ public class TrafficLightController {
         private  ArrayList<TrafficLight> lights;
         private GUIController GUI;
 
-        public LightStatusThread(){ }
-
         public LightStatusThread(TrafficLight currentLight, ArrayList<TrafficLight> lights, GUIController GUI){
             this.currentLight = currentLight;
             this.lights = lights;
@@ -76,13 +80,13 @@ public class TrafficLightController {
                 try {
                     GUI.changeLightColor(currentLight);
 
-                    Thread.sleep(currentLight.TimingInterval * 1000);
-                    currentLight.Status = LightStatus.Yellow;
+                    Thread.sleep((currentLight.getTimingInterval() * 1000)/mTimeScale);
+                    currentLight.setStatus(LightStatus.Yellow);
                     GUI.changeLightColor(currentLight);
 
-                    Thread.sleep(3000);
+                    Thread.sleep(3000/mTimeScale);
 
-                    currentLight.Status = LightStatus.Red;
+                    currentLight.setStatus(LightStatus.Red);
                     GUI.changeLightColor(currentLight);
 
                     int index = lights.indexOf(currentLight);
@@ -92,7 +96,7 @@ public class TrafficLightController {
                         index = 0;
 
                     currentLight = lights.get(index);
-                    currentLight.Status = LightStatus.Green;
+                    currentLight.setStatus(LightStatus.Green);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 } catch (ClassNotFoundException ex) {
@@ -100,9 +104,5 @@ public class TrafficLightController {
                 }
             }
         }
-    }
-
-    public void printLightStatus(TrafficLight light){
-            System.out.println(light.Name + ": " + light.Status);
     }
 }

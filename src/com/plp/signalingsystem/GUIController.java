@@ -61,7 +61,6 @@ public class GUIController implements Initializable {
         initializeGUILights();
 
         timeScaleText.textProperty().bindBidirectional(timeScaleSlider.valueProperty(), getStringConverter(timeScaleSlider, timeScaleText));
-
         toggleSwitch.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event){
@@ -89,6 +88,7 @@ public class GUIController implements Initializable {
         return new StringConverter<Number>() {
             @Override
             public String toString(Number object) {
+                trafficLightController.setTimeScale(object.intValue());
                 return Integer.toString(object.intValue());
             }
             @Override
@@ -105,14 +105,14 @@ public class GUIController implements Initializable {
                 }
                 else
                     val = slider.getValue();
-
+                trafficLightController.setTimeScale((int)val);
                 textValue.setText(Integer.toString((int)val));
                 return (int)val;
             }
         };
     }
 
-    public  void initializeGUILights() {
+    public void initializeGUILights() {
         Map<String,StoplightUIElement> valuesByName = new HashMap<String, StoplightUIElement>();
 
         StoplightUIElement StoplightA = new StoplightUIElement(StoplightA1, StoplightA2);
@@ -138,14 +138,14 @@ public class GUIController implements Initializable {
         VALUES_BY_NAME = valuesByName;
     }
     public void changeLightColor(TrafficLight light) throws ClassNotFoundException {
-        StoplightUIElement thisLight = VALUES_BY_NAME.get(light.Name);
-        Image image = new Image("com/plp/signalingsystem/pictures/" + light.Status + ".png");
+        StoplightUIElement thisLight = VALUES_BY_NAME.get(light.getName());
+        Image image = new Image("com/plp/signalingsystem/pictures/" + light.getStatus() + ".png");
 
-        if (thisLight.GridLight != null) {
-            thisLight.GridLight.setImage(image);
+        if (thisLight.getGridLight() != null) {
+            thisLight.getGridLight().setImage(image);
         }
-        if(thisLight.RoadLight != null) {
-            thisLight.RoadLight.setImage(image);
+        if(thisLight.getRoadLight() != null) {
+            thisLight.getRoadLight().setImage(image);
         }
     }
 }
