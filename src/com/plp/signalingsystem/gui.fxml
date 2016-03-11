@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -272,11 +274,15 @@
                   <Image url="@pictures/Off.png" />
                </image>
             </ImageView>
+            <Label layoutX="535.0" layoutY="274.0" text="A" textFill="#ffffffb0" />
+            <Label layoutX="625.0" layoutY="221.0" text="B" textFill="#ffffffb0" />
+            <Label layoutX="681.0" layoutY="273.0" text="D" textFill="#ffffffb0" />
+            <Label layoutX="585.0" layoutY="378.0" text="C" textFill="#ffffffb0" />
          </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
                 <Text layoutX="33.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Scale" wrappingWidth="67.13671875" />
-                <Slider id="timeScaleSlider" fx:id="timeScaleSlider" layoutX="5.0" layoutY="32.0" prefHeight="14.0" prefWidth="92.0" min="1" max="10" />
+                <Slider id="timeScaleSlider" fx:id="timeScaleSlider" layoutX="5.0" layoutY="32.0" max="10" min="1" prefHeight="14.0" prefWidth="92.0" />
                 <TextField id="timeScaleText" fx:id="timeScaleText" layoutX="96.0" layoutY="26.0" prefHeight="25.0" prefWidth="35.0" text="2" />
                 <ToggleButton id="toggleSwitch" fx:id="toggleSwitch" layoutX="26.0" layoutY="462.0" mnemonicParsing="false" text="Start Simulation" />
                 <Text layoutX="41.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" />

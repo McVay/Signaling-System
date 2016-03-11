@@ -5,6 +5,7 @@ import java.awt.*;
 import java.net.URL;
 import java.util.*;
 
+import com.google.gson.Gson;
 import com.plp.signalingsystem.model.LightStatus;
 import com.plp.signalingsystem.model.StoplightUIElement;
 import com.plp.signalingsystem.model.TrafficLight;
