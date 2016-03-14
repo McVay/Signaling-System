@@ -145,7 +145,7 @@ public class GUIController implements Initializable {
         if (thisLight.getGridLight() != null) {
             thisLight.getGridLight().setImage(image);
         }
-        if(thisLight.getRoadLight() != null) {
+        if (thisLight.getRoadLight() != null) {
             thisLight.getRoadLight().setImage(image);
         }
     }
