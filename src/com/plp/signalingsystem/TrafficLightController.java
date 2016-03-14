@@ -6,14 +6,14 @@ import com.plp.signalingsystem.model.Intersection;
 import com.plp.signalingsystem.model.LightStatus;
 import com.plp.signalingsystem.model.TrafficLight;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 
 public class TrafficLightController {
-    private GUIController GUI;
-    volatile boolean simulationIsOn = false;
-    volatile int mTimeScale = 1;
+    private volatile ArrayList<Intersection> intersections = new ArrayList<Intersection>();
+    private static GUIController GUI;
+    private volatile boolean simulationIsOn = false;
+    private volatile int mTimeScale = 1;
 
 
     TrafficLightController(GUIController gui) {
@@ -24,13 +24,13 @@ public class TrafficLightController {
         this.mTimeScale = scale;
     }
 
-    public ArrayList<Intersection> initializeIntersections() {
+    private ArrayList<Intersection> initializeIntersections() {
 
         Gson GsonConverter = new Gson();
 
         try {
             String currentDir = System.getProperties().getProperty("user.dir");
-            JsonReader reader = new JsonReader(new FileReader(currentDir + "\\src\\com\\plp\\signalingsystem\\data\\lights.json"));
+            JsonReader reader = new JsonReader(new FileReader(currentDir + "/src/com/plp/signalingsystem/data/lights.json"));
             return  GsonConverter.fromJson(reader, new TypeToken<ArrayList<Intersection>>() {}.getType());
         }
         catch (FileNotFoundException ex) {
@@ -46,8 +46,8 @@ public class TrafficLightController {
 
         simulationIsOn = true;
 
-        ArrayList<Intersection> intersection = initializeIntersections();
-        for(Intersection i: intersection){
+        intersections = initializeIntersections();
+        for(Intersection i: intersections){
             for(TrafficLight l: i.getLights()){
                 if(l.getStatus() == LightStatus.Green){
                     i.setCurrentLight(l);
@@ -57,24 +57,44 @@ public class TrafficLightController {
                 } catch (ClassNotFoundException ex) {
                     System.out.println(ex.getMessage());
                 }
+                LightStatusThread thread = new LightStatusThread(i);
+                thread.start();
             }
-            LightStatusThread thread = new LightStatusThread(i.getCurrentLight(), i.getLights());
-            thread.start();
         }
     }
 
     public void stopSimulation(){
         simulationIsOn = false;
         GUI.turnAllLightsOff();
+        writeLightsToJSON();
+    }
+    private void writeLightsToJSON()
+    {
+        try {
+            String currentDir = System.getProperties().getProperty("user.dir");
+            File lights = new File(currentDir + "/src/com/plp/signalingsystem/data/lights.json");
+
+            FileOutputStream stream = new FileOutputStream(lights, false);
+            Gson gson = new Gson();
+
+            byte[] mBytes = gson.toJson(intersections).getBytes();
+            stream.write(mBytes);
+
+            stream.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
-    public class LightStatusThread extends Thread {
+    private class LightStatusThread extends Thread {
         private TrafficLight currentLight;
         private  ArrayList<TrafficLight> lights;
 
-        public LightStatusThread(TrafficLight currentLight, ArrayList<TrafficLight> lights){
-            this.currentLight = currentLight;
-            this.lights = lights;
+        private LightStatusThread(Intersection i){
+            this.currentLight = i.getCurrentLight();
+            this.lights = i.getLights();
         }
 
         @Override
