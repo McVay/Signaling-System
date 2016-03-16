@@ -6,9 +6,7 @@ import java.net.URL;
 import java.util.*;
 
 import com.google.gson.Gson;
-import com.plp.signalingsystem.model.LightStatus;
-import com.plp.signalingsystem.model.StoplightUIElement;
-import com.plp.signalingsystem.model.TrafficLight;
+import com.plp.signalingsystem.model.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -137,15 +135,40 @@ public class GUIController implements Initializable {
 
         VALUES_BY_NAME = valuesByName;
     }
-    public void changeLightColor(TrafficLight light) throws ClassNotFoundException {
-        StoplightUIElement thisLight = VALUES_BY_NAME.get(light.getName());
-        Image image = new Image("com/plp/signalingsystem/pictures/" + light.getStatus() + ".png");
+    public void changeLightColor(Intersection intersection, String lightSequence) throws ClassNotFoundException {
 
-        if (thisLight.getGridLight() != null) {
-            thisLight.getGridLight().setImage(image);
-        }
-        if (thisLight.getRoadLight() != null) {
-            thisLight.getRoadLight().setImage(image);
+        ArrayList<TrafficLight> lights = intersection.getLights();
+        for(int i=0; i < lights.size(); i++)
+        {
+            StoplightUIElement thisLight = VALUES_BY_NAME.get(lights.get(i).getName());
+
+            String status;
+
+            char lightStatus = lightSequence.charAt(i);
+            switch (lightStatus) {
+                case 'R':
+                    status = "Red";
+                    break;
+                case 'G':
+                    status = "Green";
+                    break;
+                case 'Y':
+                    status = "Yellow";
+                    break;
+                default:
+                    status = "Off";
+                    break;
+            }
+
+            Image img = new Image("com/plp/signalingsystem/pictures/" + status + ".png");
+
+            if (thisLight.getGridLight() != null) {
+                thisLight.getGridLight().setImage(img);
+            }
+            if (thisLight.getRoadLight() != null) {
+                thisLight.getRoadLight().setImage(img);
+            }
+
         }
     }
     public void turnAllLightsOff() {

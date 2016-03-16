@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class TrafficLightController {
     private volatile ArrayList<Intersection> intersections = new ArrayList<Intersection>();
-    private static GUIController GUI;
+    private GUIController GUI;
     private volatile boolean simulationIsOn = false;
     private volatile int mTimeScale = 1;
 
@@ -62,24 +62,15 @@ public class TrafficLightController {
 
     public void startSimulation() {
 
-        ArrayList<LightState> states = new ArrayList<LightState>();
-        states.add(new LightState("Eastern Intersection",15,"RRGR"));
-        states.add(new LightState("Eastern Intersection",3,"RRYR"));
-        states.add(new LightState("Eastern Intersection",20,"RGRG"));
-
-        Gson GsonConverter = new Gson();
-
-        System.out.println(GsonConverter.toJson(states));
-
         simulationIsOn = true;
 
         intersections = initializeIntersections();
         ArrayList<LightState> lightStates = initializeLightStates();
         for(Intersection i: intersections) {
 
-                //ArrayList<LightState> states = new ArrayList<LightState>();
+                ArrayList<LightState> states = new ArrayList<LightState>();
                 for(LightState l: lightStates) {
-                    if(l.getIntersectionName() == i.getIntersectionName()) {
+                    if(i.getIntersectionName().equals(l.getIntersectionName())) {
                         states.add(l);
                     }
                 }
@@ -92,42 +83,37 @@ public class TrafficLightController {
     public void stopSimulation(){
         simulationIsOn = false;
         GUI.turnAllLightsOff();
-        writeLightsToJSON();
     }
 
-    private void writeLightsToJSON()
-    {
-        try {
-            String currentDir = System.getProperties().getProperty("user.dir");
-            File lights = new File(currentDir + "/src/com/plp/signalingsystem/data/lights.json");
-
-            FileOutputStream stream = new FileOutputStream(lights, false);
-            Gson gson = new Gson();
-
-            byte[] mBytes = gson.toJson(intersections).getBytes();
-            stream.write(mBytes);
-
-            stream.close();
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
-    private class LightStatusThread extends Thread {
-        private ArrayList<TrafficLight> lights;
-        private  ArrayList<LightState> lightStates;
+    private class LightStatusThread extends Thread  {
+        private ArrayList<LightState> lightStates;
+        private Intersection intersection;
 
         private LightStatusThread(Intersection i, ArrayList<LightState> lightStates){
             this.lightStates = lightStates;
-            this.lights = i.getLights();
+            this.intersection = i;
         }
 
         @Override
         public void run() {
             while (simulationIsOn) {
+                for(LightState s: lightStates)
+                {
+                    long startTime = System.currentTimeMillis();
 
+                    try {
+                        GUI.changeLightColor(this.intersection, s.getLightSequence());
+                    } catch (ClassNotFoundException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+
+                    do{
+                        if(!simulationIsOn) {
+                            return;
+                        }
+                    }
+                    while(((s.getDuration()*1000)/mTimeScale) >= System.currentTimeMillis() - startTime);
+                }
             }
         }
     }

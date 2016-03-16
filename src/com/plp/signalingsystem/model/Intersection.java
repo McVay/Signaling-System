@@ -19,17 +19,8 @@ public class Intersection {
         mLights = lights;
     }
 
-    public TrafficLight getCurrentLight() {
-        return mCurrentLight;
-    }
-
-    public void setCurrentLight(TrafficLight currentLight) {
-        mCurrentLight = currentLight;
-    }
-
     private String mIntersectionName;
     private ArrayList<TrafficLight> mLights;
-    private TrafficLight mCurrentLight;
 
     public Intersection(String RoadName, ArrayList<TrafficLight> lights){
         this.mIntersectionName = RoadName;
