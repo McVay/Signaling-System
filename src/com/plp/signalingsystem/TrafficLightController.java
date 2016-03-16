@@ -3,7 +3,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.plp.signalingsystem.model.Intersection;
-import com.plp.signalingsystem.model.LightStatus;
+import com.plp.signalingsystem.model.LightState;
 import com.plp.signalingsystem.model.TrafficLight;
 
 import java.io.*;
@@ -15,10 +15,10 @@ public class TrafficLightController {
     private volatile boolean simulationIsOn = false;
     private volatile int mTimeScale = 1;
 
-
     TrafficLightController(GUIController gui) {
         this.GUI = gui;
     }
+
     public void setTimeScale(int scale)
     {
         this.mTimeScale = scale;
@@ -42,24 +42,50 @@ public class TrafficLightController {
         return null;
     }
 
+    private ArrayList<LightState> initializeLightStates() {
+
+        Gson GsonConverter = new Gson();
+
+        try {
+            String currentDir = System.getProperties().getProperty("user.dir");
+            JsonReader reader = new JsonReader(new FileReader(currentDir + "/src/com/plp/signalingsystem/data/lightStates.json"));
+            return  GsonConverter.fromJson(reader, new TypeToken<ArrayList<LightState>>() {}.getType());
+        }
+        catch (FileNotFoundException ex) {
+            ex.getCause();
+            System.out.println("Light state configuration file not found.\nStopping simulation.");
+            stopSimulation();
+        }
+
+        return null;
+    }
+
     public void startSimulation() {
+
+        ArrayList<LightState> states = new ArrayList<LightState>();
+        states.add(new LightState("Eastern Intersection",15,"RRGR"));
+        states.add(new LightState("Eastern Intersection",3,"RRYR"));
+        states.add(new LightState("Eastern Intersection",20,"RGRG"));
+
+        Gson GsonConverter = new Gson();
+
+        System.out.println(GsonConverter.toJson(states));
 
         simulationIsOn = true;
 
         intersections = initializeIntersections();
-        for(Intersection i: intersections){
-            for(TrafficLight l: i.getLights()){
-                if(l.getStatus() == LightStatus.Green){
-                    i.setCurrentLight(l);
+        ArrayList<LightState> lightStates = initializeLightStates();
+        for(Intersection i: intersections) {
+
+                //ArrayList<LightState> states = new ArrayList<LightState>();
+                for(LightState l: lightStates) {
+                    if(l.getIntersectionName() == i.getIntersectionName()) {
+                        states.add(l);
+                    }
                 }
-                try {
-                    GUI.changeLightColor(l);
-                } catch (ClassNotFoundException ex) {
-                    System.out.println(ex.getMessage());
-                }
-                LightStatusThread thread = new LightStatusThread(i);
+
+                LightStatusThread thread = new LightStatusThread(i, states);
                 thread.start();
-            }
         }
     }
 
@@ -68,6 +94,7 @@ public class TrafficLightController {
         GUI.turnAllLightsOff();
         writeLightsToJSON();
     }
+
     private void writeLightsToJSON()
     {
         try {
@@ -89,60 +116,18 @@ public class TrafficLightController {
     }
 
     private class LightStatusThread extends Thread {
-        private TrafficLight currentLight;
-        private  ArrayList<TrafficLight> lights;
+        private ArrayList<TrafficLight> lights;
+        private  ArrayList<LightState> lightStates;
 
-        private LightStatusThread(Intersection i){
-            this.currentLight = i.getCurrentLight();
+        private LightStatusThread(Intersection i, ArrayList<LightState> lightStates){
+            this.lightStates = lightStates;
             this.lights = i.getLights();
         }
 
         @Override
         public void run() {
             while (simulationIsOn) {
-                int max = lights.size();
-                try {
-                    GUI.changeLightColor(currentLight);
 
-                    long timeGreen = System.currentTimeMillis();
-                    while(true) {
-                        if(!simulationIsOn) {
-                            return;
-                        }
-                        long duration = System.currentTimeMillis() - timeGreen;
-                        if(duration >= currentLight.getTimingInterval() * 1000/mTimeScale) {
-                            currentLight.setStatus(LightStatus.Yellow);
-                            GUI.changeLightColor(currentLight);
-                            break;
-                        }
-                    }
-
-                    long timeYellow = System.currentTimeMillis();
-                    while(true) {
-                        if(!simulationIsOn) {
-                            return;
-                        }
-                        long duration = System.currentTimeMillis() - timeYellow;
-                        if(duration >= 3000/mTimeScale) {
-                            currentLight.setStatus(LightStatus.Red);
-                            GUI.changeLightColor(currentLight);
-                            break;
-                        }
-                    }
-
-                    if(simulationIsOn) {
-                        int index = lights.indexOf(currentLight);
-                        index++;
-
-                        if (index >= max)
-                            index = 0;
-
-                        currentLight = lights.get(index);
-                        currentLight.setStatus(LightStatus.Green);
-                    }
-                } catch (ClassNotFoundException ex) {
-                    System.out.println(ex.getMessage());
-                }
             }
         }
     }

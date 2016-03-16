@@ -12,7 +12,7 @@
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="674.0">
          <children>
-            <ImageView fitHeight="363.0" fitWidth="728.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="503.0" fitWidth="721.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@pictures/Backdrop.png" />
                </image>

@@ -56,7 +56,6 @@ public class GUIController implements Initializable {
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources)  {
 
-        splitPane.setStyle("-fx-background-color: #009933;");
         grid.setStyle("-fx-background-color: #FFFFFD;");
 
         initializeGUILights();
