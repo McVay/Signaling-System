@@ -1,17 +1,22 @@
 [
   {
     "mDuration":15,
-    "mLightSequence":"RRGR",
+    "mLightSequence":"GRGR",
     "mIntersectionName":"Eastern Intersection"
   },
   {
     "mDuration":3,
-    "mLightSequence":"RRYR",
+    "mLightSequence":"YRYR",
     "mIntersectionName":"Eastern Intersection"
   },
   {
     "mDuration":20,
     "mLightSequence":"RGRG",
+    "mIntersectionName":"Eastern Intersection"
+  },
+  {
+    "mDuration":3,
+    "mLightSequence":"RYRY",
     "mIntersectionName":"Eastern Intersection"
   }
 ]
