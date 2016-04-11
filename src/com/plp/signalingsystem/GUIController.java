@@ -155,6 +155,12 @@ public class GUIController implements Initializable {
                 case 'Y':
                     status = "Yellow";
                     break;
+                case 'P':
+                    status = "Left";
+                    break;
+                case 'S':
+                    status = "Right";
+                    break;
                 default:
                     status = "Off";
                     break;
