@@ -41,10 +41,10 @@ public class GUIController implements Initializable {
     private GridPane grid;
 
     @FXML
-    private ImageView StoplightA1, StoplightB1, StoplightC1, StoplightD1, StoplightE1, StoplightF1, StoplightG1, StoplightH1, StoplightI1;
+    private ImageView StoplightA1, StoplightB1, StoplightC1, StoplightD1, StoplightE1, StoplightF1, StoplightG1, StoplightH1;
 
     @FXML
-    private ImageView StoplightA2, StoplightB2, StoplightC2, StoplightD2, StoplightE2, StoplightF2, StoplightG2, StoplightH2, StoplightI2;
+    private ImageView StoplightA2, StoplightB2, StoplightC2, StoplightD2, StoplightE2, StoplightF2, StoplightG2, StoplightH2;
 
 
     Map<String, StoplightUIElement> VALUES_BY_NAME;
