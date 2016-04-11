@@ -42,40 +42,14 @@ public class TrafficLightController {
         return null;
     }
 
-    private ArrayList<LightState> initializeLightStates() {
-
-        Gson GsonConverter = new Gson();
-
-        try {
-            String currentDir = System.getProperties().getProperty("user.dir");
-            JsonReader reader = new JsonReader(new FileReader(currentDir + "/src/com/plp/signalingsystem/data/lightStates.json"));
-            return  GsonConverter.fromJson(reader, new TypeToken<ArrayList<LightState>>() {}.getType());
-        }
-        catch (FileNotFoundException ex) {
-            ex.getCause();
-            System.out.println("Light state configuration file not found.\nStopping simulation.");
-            stopSimulation();
-        }
-
-        return null;
-    }
 
     public void startSimulation() {
 
         simulationIsOn = true;
 
         intersections = initializeIntersections();
-        ArrayList<LightState> lightStates = initializeLightStates();
         for(Intersection i: intersections) {
-
-                ArrayList<LightState> states = new ArrayList<LightState>();
-                for(LightState l: lightStates) {
-                    if(i.getIntersectionName().equals(l.getIntersectionName())) {
-                        states.add(l);
-                    }
-                }
-
-                LightStatusThread thread = new LightStatusThread(i, states);
+                LightStatusThread thread = new LightStatusThread(i);
                 thread.start();
         }
     }
@@ -86,18 +60,16 @@ public class TrafficLightController {
     }
 
     private class LightStatusThread extends Thread  {
-        private ArrayList<LightState> lightStates;
         private Intersection intersection;
 
-        private LightStatusThread(Intersection i, ArrayList<LightState> lightStates){
-            this.lightStates = lightStates;
+        private LightStatusThread(Intersection i){
             this.intersection = i;
         }
 
         @Override
         public void run() {
             while (simulationIsOn) {
-                for(LightState s: lightStates)
+                for(LightState s: intersection.getmLightStates())
                 {
                     long startTime = System.currentTimeMillis();
 

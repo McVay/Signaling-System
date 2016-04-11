@@ -117,21 +117,21 @@ public class GUIController implements Initializable {
         StoplightUIElement StoplightB = new StoplightUIElement(StoplightB1, StoplightB2);
         StoplightUIElement StoplightC = new StoplightUIElement(StoplightC1, StoplightC2);
         StoplightUIElement StoplightD = new StoplightUIElement(StoplightD1, StoplightD2);
+
         StoplightUIElement StoplightE = new StoplightUIElement(StoplightE1, StoplightE2);
         StoplightUIElement StoplightF = new StoplightUIElement(StoplightF1, StoplightF2);
         StoplightUIElement StoplightG = new StoplightUIElement(StoplightG1, StoplightG2);
         StoplightUIElement StoplightH = new StoplightUIElement(StoplightH1, StoplightH2);
-        StoplightUIElement StoplightI = new StoplightUIElement(StoplightI1, StoplightI2);
 
         valuesByName.put("StoplightA", StoplightA);
         valuesByName.put("StoplightB", StoplightB);
         valuesByName.put("StoplightC", StoplightC);
         valuesByName.put("StoplightD", StoplightD);
+
         valuesByName.put("StoplightE", StoplightE);
         valuesByName.put("StoplightF", StoplightF);
         valuesByName.put("StoplightG", StoplightG);
         valuesByName.put("StoplightH", StoplightH);
-        valuesByName.put("StoplightI", StoplightI);
 
         VALUES_BY_NAME = valuesByName;
     }

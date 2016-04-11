@@ -1,1 +1,58 @@
-[{"mIntersectionName":"Eastern Intersection","mLights":[{"mName":"StoplightA","mStatus":"Green"},{"mName":"StoplightB","mStatus":"Red"},{"mName":"StoplightC","mStatus":"Red"},{"mName":"StoplightD","mStatus":"Red"}]},{"mIntersectionName":"Western Intersection","mLights":[{"mName":"StoplightE","mStatus":"Red"},{"mName":"StoplightF","mStatus":"Green"},{"mName":"StoplightG","mStatus":"Red"},{"mName":"StoplightH","mStatus":"Red"}]}]
+[{
+  "mIntersectionName": "Eastern Intersection",
+  "mLights": [{
+    "mName": "StoplightA",
+    "mStatus": "Green"
+  }, {
+    "mName": "StoplightB",
+    "mStatus": "Red"
+  }, {
+    "mName": "StoplightC",
+    "mStatus": "Red"
+  }, {
+    "mName": "StoplightD",
+    "mStatus": "Red"
+  }],
+  "mLightStates": [{
+    "mDuration": 15,
+    "mLightSequence": "GRGR"
+  }, {
+    "mDuration": 3,
+    "mLightSequence": "YRYR"
+  }, {
+    "mDuration": 20,
+    "mLightSequence": "RGRG"
+  }, {
+    "mDuration": 3,
+    "mLightSequence": "RYRY"
+  }]
+
+}, {
+  "mIntersectionName": "Western Intersection",
+  "mLights": [{
+    "mName": "StoplightE",
+    "mStatus": "Red"
+  }, {
+    "mName": "StoplightF",
+    "mStatus": "Green"
+  }, {
+    "mName": "StoplightG",
+    "mStatus": "Red"
+  }, {
+    "mName": "StoplightH",
+    "mStatus": "Red"
+  }],
+  "mLightStates": [{
+    "mDuration": 15,
+    "mLightSequence": "GRGR"
+  }, {
+    "mDuration": 3,
+    "mLightSequence": "YRYR"
+  }, {
+    "mDuration": 20,
+    "mLightSequence": "RGRG"
+  }, {
+    "mDuration": 3,
+    "mLightSequence": "RYRY"
+  }]
+}]

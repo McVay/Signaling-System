@@ -21,9 +21,35 @@ public class Intersection {
 
     private String mIntersectionName;
     private ArrayList<TrafficLight> mLights;
+    private ArrayList<LightState> mLightStates;
 
-    public Intersection(String RoadName, ArrayList<TrafficLight> lights){
+    public String getmIntersectionName() {
+        return mIntersectionName;
+    }
+
+    public void setmIntersectionName(String mIntersectionName) {
+        this.mIntersectionName = mIntersectionName;
+    }
+
+    public ArrayList<TrafficLight> getmLights() {
+        return mLights;
+    }
+
+    public void setmLights(ArrayList<TrafficLight> mLights) {
+        this.mLights = mLights;
+    }
+
+    public ArrayList<LightState> getmLightStates() {
+        return mLightStates;
+    }
+
+    public void setmLightStates(ArrayList<LightState> mLightStates) {
+        this.mLightStates = mLightStates;
+    }
+
+    public Intersection(String RoadName, ArrayList<TrafficLight> lights, ArrayList<LightState> lightStates){
         this.mIntersectionName = RoadName;
         this.mLights = lights;
+        this.mLightStates = lightStates;
     }
 }

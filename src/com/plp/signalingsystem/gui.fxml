@@ -104,7 +104,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="587.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <Pane layoutX="587.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <ImageView id="StoplightF1" fx:id="StoplightE1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -116,14 +116,14 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="59.0" layoutY="35.0" text="Backup: #">
+                        <Label layoutX="59.0" layoutY="35.0" text="North East">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Pane layoutX="10.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <ImageView id="StoplightG1" fx:id="StoplightF1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -135,14 +135,14 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="59.0" layoutY="35.0" text="Backup: #">
+                        <Label layoutX="59.0" layoutY="35.0" text="South East">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="155.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Pane layoutX="155.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
                         <ImageView id="StoplightH1" fx:id="StoplightG1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -154,26 +154,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="59.0" layoutY="35.0" text="Backup: #">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="299.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                     <children>
-                        <ImageView id="StoplightI1" fx:id="StoplightH1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@pictures/Off.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="59.0" layoutY="14.0" text="Stoplight H">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="59.0" layoutY="35.0" text="Backup: #">
+                        <Label layoutX="59.0" layoutY="35.0" text="South West">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -182,21 +163,25 @@
                   </Pane>
                   <Pane layoutX="443.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <children>
-                        <ImageView id="StoplightJ1" fx:id="StoplightI1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@pictures/Off.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="59.0" layoutY="14.0" text="Stoplight I">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="59.0" layoutY="35.0" text="Backup: #">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView id="StoplightI1" fx:id="StoplightH1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@pictures/Off.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="59.0" layoutY="14.0" text="Stoplight H">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="59.0" layoutY="35.0" text="North West">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0">
@@ -208,64 +193,161 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label layoutX="18.0" layoutY="27.0" text="Western Intersection">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                </children>
             </GridPane>
-            <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="537.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@pictures/buttonback.png" />
-               </image>
-            </ImageView>
-            <ImageView id="StoplightD2" fx:id="StoplightD2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@pictures/Off.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="582.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@pictures/buttonback.png" />
-               </image>
-            </ImageView>
-            <ImageView id="StoplightA2" fx:id="StoplightA2" fitHeight="52.0" fitWidth="35.0" layoutX="587.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <image>
-                  <Image url="@pictures/Off.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="599.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@pictures/buttonback.png" />
-               </image>
-            </ImageView>
-            <ImageView id="StoplightC2" fx:id="StoplightC2" fitHeight="52.0" fitWidth="35.0" layoutX="604.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <image>
-                  <Image url="@pictures/Off.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="643.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@pictures/buttonback.png" />
-               </image>
-            </ImageView>
-            <ImageView id="StoplightB2" fx:id="StoplightB2" fitHeight="52.0" fitWidth="35.0" layoutX="648.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <image>
-                  <Image url="@pictures/Off.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="535.0" layoutY="274.0" text="D" textFill="#ffffffb0" />
-            <Label layoutX="625.0" layoutY="221.0" text="A" textFill="#ffffffb0" />
+            <Group>
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="537.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/buttonback.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="StoplightD2" fx:id="StoplightD2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/Off.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="582.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/buttonback.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="StoplightA2" fx:id="StoplightA2" fitHeight="52.0" fitWidth="35.0" layoutX="587.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@pictures/Off.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="599.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/buttonback.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="StoplightC2" fx:id="StoplightC2" fitHeight="52.0" fitWidth="35.0" layoutX="604.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@pictures/Off.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="643.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/buttonback.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="StoplightB2" fx:id="StoplightB2" fitHeight="52.0" fitWidth="35.0" layoutX="648.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@pictures/Off.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <Label layoutX="538.0" layoutY="284.0" text="D" textFill="#ffffffb0" />
+            <Label layoutX="624.0" layoutY="230.0" text="A" textFill="#ffffffb0" />
             <Label layoutX="681.0" layoutY="273.0" text="B" textFill="#ffffffb0" />
             <Label layoutX="585.0" layoutY="378.0" text="C" textFill="#ffffffb0" />
+            <Group layoutX="-349.0" layoutY="72.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="537.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/buttonback.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="StoplightD2" fx:id="StoplightG2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@pictures/Off.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <Group layoutX="-177.0" layoutY="64.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="537.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/buttonback.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="StoplightD2" fx:id="StoplightF2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@pictures/Off.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <Group layoutX="-199.0" layoutY="-62.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="537.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/buttonback.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="StoplightD2" fx:id="StoplightE2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@pictures/Off.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <Group layoutX="-395.0" layoutY="-50.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="537.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/buttonback.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="StoplightD2" fx:id="StoplightH2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@pictures/Off.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Group>
+            <Label layoutX="384.0" layoutY="230.0" text="E" textFill="#ffffffb0" />
+            <Label layoutX="406.0" layoutY="370.0" text="F" textFill="#ffffffb0" />
+            <Label layoutX="173.0" layoutY="370.0" text="G" textFill="#ffffffb0" />
+            <Label layoutX="138.0" layoutY="239.0" text="H" textFill="#ffffffb0" />
          </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
