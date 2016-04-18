@@ -25,10 +25,9 @@
   }, {
     "mDuration": 3,
     "mLightSequence": "RYRY"
-}]
-
+  }]
 }, {
-  "mIntersectionName": "Western Intersection",
+  "mIntersectionName": "Western Intersection 1",
   "mLights": [{
     "mName": "StoplightE",
     "mStatus": "Red"
@@ -40,6 +39,34 @@
     "mStatus": "Red"
   }, {
     "mName": "StoplightH",
+    "mStatus": "Red"
+  }],
+  "mLightStates": [{
+    "mDuration": 15,
+    "mLightSequence": "GRGR"
+  }, {
+    "mDuration": 3,
+    "mLightSequence": "YRYR"
+  }, {
+    "mDuration": 20,
+    "mLightSequence": "RGRG"
+  }, {
+    "mDuration": 3,
+    "mLightSequence": "RYRY"
+  }]
+}, {
+  "mIntersectionName": "Western Intersection 2",
+  "mLights": [{
+    "mName": "StoplightI",
+    "mStatus": "Red"
+  }, {
+    "mName": "StoplightJ",
+    "mStatus": "Green"
+  }, {
+    "mName": "StoplightK",
+    "mStatus": "Red"
+  }, {
+    "mName": "StoplightL",
     "mStatus": "Red"
   }],
   "mLightStates": [{

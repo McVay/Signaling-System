@@ -41,10 +41,10 @@ public class GUIController implements Initializable {
     private GridPane grid;
 
     @FXML
-    private ImageView StoplightA1, StoplightB1, StoplightC1, StoplightD1, StoplightE1, StoplightF1, StoplightG1, StoplightH1;
+    private ImageView StoplightA1, StoplightB1, StoplightC1, StoplightD1, StoplightE1, StoplightF1, StoplightG1, StoplightH1, StoplightI1, StoplightJ1, StoplightK1, StoplightL1;
 
     @FXML
-    private ImageView StoplightA2, StoplightB2, StoplightC2, StoplightD2, StoplightE2, StoplightF2, StoplightG2, StoplightH2;
+    private ImageView StoplightA2, StoplightB2, StoplightC2, StoplightD2, StoplightE2, StoplightF2, StoplightG2, StoplightH2, StoplightI2, StoplightJ2, StoplightK2, StoplightL2;
 
 
     Map<String, StoplightUIElement> VALUES_BY_NAME;
@@ -64,14 +64,14 @@ public class GUIController implements Initializable {
             public void handle(ActionEvent event){
                 boolean selected = toggleSwitch.isSelected();
                 if(selected) {
-                    toggleSwitch.setText("Stop Simulation");
+                    toggleSwitch.setText("Stop");
                     trafficLightController.startSimulation();
                 }
 
                 else
                 {
                     trafficLightController.stopSimulation();
-                    toggleSwitch.setText("Start Simulation");
+                    toggleSwitch.setText("Start");
                 }
 
             }
@@ -123,6 +123,11 @@ public class GUIController implements Initializable {
         StoplightUIElement StoplightG = new StoplightUIElement(StoplightG1, StoplightG2);
         StoplightUIElement StoplightH = new StoplightUIElement(StoplightH1, StoplightH2);
 
+        StoplightUIElement StoplightI = new StoplightUIElement(StoplightI1, StoplightI2);
+        StoplightUIElement StoplightJ = new StoplightUIElement(StoplightJ1, StoplightJ2);
+        StoplightUIElement StoplightK = new StoplightUIElement(StoplightK1, StoplightK2);
+        StoplightUIElement StoplightL = new StoplightUIElement(StoplightL1, StoplightL2);
+
         valuesByName.put("StoplightA", StoplightA);
         valuesByName.put("StoplightB", StoplightB);
         valuesByName.put("StoplightC", StoplightC);
@@ -132,6 +137,11 @@ public class GUIController implements Initializable {
         valuesByName.put("StoplightF", StoplightF);
         valuesByName.put("StoplightG", StoplightG);
         valuesByName.put("StoplightH", StoplightH);
+
+        valuesByName.put("StoplightI", StoplightI);
+        valuesByName.put("StoplightJ", StoplightJ);
+        valuesByName.put("StoplightK", StoplightK);
+        valuesByName.put("StoplightL", StoplightL);
 
         VALUES_BY_NAME = valuesByName;
     }
