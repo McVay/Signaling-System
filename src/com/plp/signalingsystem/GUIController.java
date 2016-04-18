@@ -1,13 +1,10 @@
 
 package com.plp.signalingsystem;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.*;
 
-import com.google.gson.Gson;
 import com.plp.signalingsystem.model.*;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,9 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 
 public class GUIController implements Initializable {
@@ -178,12 +173,8 @@ public class GUIController implements Initializable {
 
             Image img = new Image("com/plp/signalingsystem/pictures/" + status + ".png");
 
-            if (thisLight.getGridLight() != null) {
-                thisLight.getGridLight().setImage(img);
-            }
-            if (thisLight.getRoadLight() != null) {
-                thisLight.getRoadLight().setImage(img);
-            }
+            thisLight.getGridLight().setImage(img);
+            thisLight.getRoadLight().setImage(img);
 
         }
     }
@@ -191,12 +182,8 @@ public class GUIController implements Initializable {
         Image image = new Image("com/plp/signalingsystem/pictures/Off.png");
 
         for(StoplightUIElement e: VALUES_BY_NAME.values()) {
-            if(e.getGridLight() != null) {
                 e.getGridLight().setImage(image);
-            }
-            if(e.getRoadLight() != null) {
                 e.getRoadLight().setImage(image);
-            }
         }
     }
 }

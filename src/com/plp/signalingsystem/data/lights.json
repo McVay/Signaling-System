@@ -2,16 +2,16 @@
   "mIntersectionName": "Eastern Intersection",
   "mLights": [{
     "mName": "StoplightA",
-    "mStatus": "Green"
+    "mStatus": "Off"
   }, {
     "mName": "StoplightB",
-    "mStatus": "Red"
+    "mStatus": "Off"
   }, {
     "mName": "StoplightC",
-    "mStatus": "Red"
+    "mStatus": "Off"
   }, {
     "mName": "StoplightD",
-    "mStatus": "Red"
+    "mStatus": "Off"
   }],
   "mLightStates": [{
     "mDuration": 15,
@@ -30,44 +30,44 @@
   "mIntersectionName": "Western Intersection 1",
   "mLights": [{
     "mName": "StoplightE",
-    "mStatus": "Red"
+    "mStatus": "Off"
   }, {
     "mName": "StoplightF",
-    "mStatus": "Green"
+    "mStatus": "Off"
   }, {
     "mName": "StoplightG",
-    "mStatus": "Red"
+    "mStatus": "Off"
   }, {
     "mName": "StoplightH",
-    "mStatus": "Red"
+    "mStatus": "Off"
   }],
   "mLightStates": [{
     "mDuration": 15,
-    "mLightSequence": "GRGR"
+    "mLightSequence": "SGSG"
   }, {
     "mDuration": 3,
-    "mLightSequence": "YRYR"
+    "mLightSequence": "YYYY"
   }, {
     "mDuration": 20,
-    "mLightSequence": "RGRG"
+    "mLightSequence": "RGGR"
   }, {
     "mDuration": 3,
-    "mLightSequence": "RYRY"
+    "mLightSequence": "YYYY"
   }]
 }, {
   "mIntersectionName": "Western Intersection 2",
   "mLights": [{
     "mName": "StoplightI",
-    "mStatus": "Red"
+    "mStatus": "Off"
   }, {
     "mName": "StoplightJ",
-    "mStatus": "Green"
+    "mStatus": "Off"
   }, {
     "mName": "StoplightK",
-    "mStatus": "Red"
+    "mStatus": "Off"
   }, {
     "mName": "StoplightL",
-    "mStatus": "Red"
+    "mStatus": "Off"
   }],
   "mLightStates": [{
     "mDuration": 15,

@@ -4,7 +4,6 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.plp.signalingsystem.model.Intersection;
 import com.plp.signalingsystem.model.LightState;
-import com.plp.signalingsystem.model.TrafficLight;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -73,18 +72,20 @@ public class TrafficLightController {
                 {
                     long startTime = System.currentTimeMillis();
 
-                    try {
-                        GUI.changeLightColor(this.intersection, s.getLightSequence());
-                    } catch (ClassNotFoundException ex) {
-                        System.out.println(ex.getMessage());
-                    }
+                    new Thread(() -> {
+                        try {
+                            GUI.changeLightColor(this.intersection, s.getLightSequence());
+                        } catch (ClassNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }).start();
 
-                    do{
+                    while(((s.getDuration()*1000)/mTimeScale) >= System.currentTimeMillis() - startTime)
+                    {
                         if(!simulationIsOn) {
                             return;
                         }
                     }
-                    while(((s.getDuration()*1000)/mTimeScale) >= System.currentTimeMillis() - startTime);
                 }
             }
         }
