@@ -2,7 +2,7 @@ package com.plp.signalingsystem.model;
 
 public class LightState {
     private int mDuration;
-    private String mLightSequence;
+    private String mLightPattern;
     private String mIntersectionName;
 
     public int getDuration() {
@@ -13,12 +13,12 @@ public class LightState {
         mDuration = duration;
     }
 
-    public String getLightSequence() {
-        return mLightSequence;
+    public String getLightPattern() {
+        return mLightPattern;
     }
 
-    public void setLightSequence(String lightSequence) {
-        mLightSequence = lightSequence;
+    public void setLightSequence(String lightPattern) {
+        mLightPattern = lightPattern;
     }
 
     public String getIntersectionName() {
@@ -29,9 +29,9 @@ public class LightState {
         this.mIntersectionName = intersectionName;
     }
 
-    public  LightState(String intersectionName, int duration, String lightSequence){
+    public  LightState(String intersectionName, int duration, String lightPattern){
         this.mIntersectionName = intersectionName;
         this.mDuration = duration;
-        this.mLightSequence = lightSequence;
+        this.mLightPattern = lightPattern;
     }
 }

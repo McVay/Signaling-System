@@ -54,22 +54,23 @@ public class GUIController implements Initializable {
         initializeGUILights();
 
         timeScaleText.textProperty().bindBidirectional(timeScaleSlider.valueProperty(), getStringConverter(timeScaleSlider, timeScaleText));
-        toggleSwitch.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event){
-                boolean selected = toggleSwitch.isSelected();
-                if(selected) {
-                    toggleSwitch.setText("Stop");
+        toggleSwitch.setOnAction(event -> {
+            boolean selected = toggleSwitch.isSelected();
+            if(selected) {
+                toggleSwitch.setText("Stop");
+                try {
                     trafficLightController.startSimulation();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                else
-                {
-                    trafficLightController.stopSimulation();
-                    toggleSwitch.setText("Start");
-                }
-
             }
+
+            else
+            {
+                trafficLightController.stopSimulation();
+                toggleSwitch.setText("Start");
+            }
+
         });
     }
 
@@ -106,7 +107,7 @@ public class GUIController implements Initializable {
     }
 
     public void initializeGUILights() {
-        Map<String,StoplightUIElement> valuesByName = new HashMap<String, StoplightUIElement>();
+        Map<String,StoplightUIElement> valuesByName = new HashMap<>();
 
         StoplightUIElement StoplightA = new StoplightUIElement(StoplightA1, StoplightA2);
         StoplightUIElement StoplightB = new StoplightUIElement(StoplightB1, StoplightB2);
