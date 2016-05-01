@@ -138,13 +138,10 @@ public class GUIController implements Initializable {
     public void changeLightColor(Intersection intersection, String lightSequence) throws ClassNotFoundException {
 
         ArrayList<TrafficLight> lights = intersection.getLights();
-        for(int i=0; i < lights.size(); i++)
-        {
-            StoplightUIElement thisLight = VALUES_BY_NAME.get(lights.get(i).getName());
-
+        lights.forEach(light -> {
+            StoplightUIElement thisLight = VALUES_BY_NAME.get(light.getName());
             String status;
-
-            char lightStatus = lightSequence.charAt(i);
+            char lightStatus = lightSequence.charAt(lights.indexOf(light));
             switch (lightStatus) {
                 case 'R':
                     status = "Red";
@@ -165,13 +162,11 @@ public class GUIController implements Initializable {
                     status = "Off";
                     break;
             }
-
             Image img = new Image("com/plp/signalingsystem/pictures/" + status + ".png");
 
             thisLight.getGridLight().setImage(img);
             thisLight.getRoadLight().setImage(img);
-
-        }
+        });
     }
     public void turnAllLightsOff() {
         Image image = new Image("com/plp/signalingsystem/pictures/Off.png");

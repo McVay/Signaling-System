@@ -114,7 +114,7 @@ public class TrafficLightController {
                             GUI.changeLightColor(this.intersection, s.getLightPattern());
                         } catch (ClassNotFoundException ex) {
                             System.out.println(ex.getMessage());
-                    }}).run();
+                    }}).start();
 
                     do{
                         if(!simulationIsOn) {
