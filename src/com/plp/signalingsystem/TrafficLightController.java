@@ -77,8 +77,10 @@ public class TrafficLightController {
                 threadPool.put(i.getIntersectionName(),thread);
                 thread.start();
         }
-        Timer timer = new Timer();
-        timer.schedule(new CheckJSON(),0, 5000);
+        new Thread(() -> {
+            Timer timer = new Timer();
+            timer.schedule(new CheckJSON(), 0, 5000);
+        }).run();
     }
 
     public void stopSimulation(){
@@ -107,13 +109,12 @@ public class TrafficLightController {
                 for(LightState s: intersection.getmLightStates())
                 {
                     long startTime = System.currentTimeMillis();
-                    new Thread(() -> {
+                    new Thread(()-> {
                         try {
                             GUI.changeLightColor(this.intersection, s.getLightPattern());
                         } catch (ClassNotFoundException ex) {
                             System.out.println(ex.getMessage());
-                        }
-                    }).start();
+                    }}).run();
 
                     do{
                         if(!simulationIsOn) {
@@ -132,13 +133,13 @@ public class TrafficLightController {
         try {
             URL url = new URL(urlString);
             reader = new BufferedReader(new InputStreamReader(url.openStream()));
-            StringBuilder buffer = new StringBuilder();
+            StringBuilder builder = new StringBuilder();
             int read;
             char[] chars = new char[1024];
             while ((read = reader.read(chars)) != -1)
-                buffer.append(chars, 0, read);
+                builder.append(chars, 0, read);
 
-            return buffer.toString();
+            return builder.toString();
         } finally {
             if (reader != null)
                 reader.close();

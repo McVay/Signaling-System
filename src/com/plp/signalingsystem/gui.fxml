@@ -108,7 +108,7 @@
                   </Pane>
                   <Pane layoutX="587.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <ImageView id="StoplightF1" fx:id="StoplightE1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="StoplightE1" fx:id="StoplightE1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pictures/Off.png" />
                            </image>
@@ -127,7 +127,7 @@
                   </Pane>
                   <Pane layoutX="10.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <ImageView id="StoplightG1" fx:id="StoplightF1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="StoplightF1" fx:id="StoplightF1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pictures/Off.png" />
                            </image>
@@ -146,7 +146,7 @@
                   </Pane>
                   <Pane layoutX="155.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
-                        <ImageView id="StoplightH1" fx:id="StoplightG1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="StoplightG1" fx:id="StoplightG1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pictures/Off.png" />
                            </image>
@@ -167,7 +167,7 @@
                      <children>
                         <Pane prefHeight="61.0" prefWidth="224.0">
                            <children>
-                              <ImageView id="StoplightI1" fx:id="StoplightH1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="StoplightH1" fx:id="StoplightH1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@pictures/Off.png" />
                                  </image>
@@ -219,7 +219,7 @@
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <ImageView id="StoplightA1" fx:id="StoplightI1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="StoplightI1" fx:id="StoplightI1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pictures/Off.png" />
                            </image>
@@ -238,7 +238,7 @@
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
-                        <ImageView id="StoplightA1" fx:id="StoplightJ1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="StoplightJ1" fx:id="StoplightJ1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pictures/Off.png" />
                            </image>
@@ -257,7 +257,7 @@
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>
-                        <ImageView id="StoplightA1" fx:id="StoplightK1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="StoplightK1" fx:id="StoplightK1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pictures/Off.png" />
                            </image>
@@ -276,7 +276,7 @@
                   </Pane>
                   <Pane prefHeight="90.0" prefWidth="184.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
                      <children>
-                        <ImageView id="StoplightA1" fx:id="StoplightL1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="StoplightL1" fx:id="StoplightL1" fitHeight="52.0" fitWidth="46.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@pictures/Off.png" />
                            </image>
@@ -302,7 +302,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightA2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightA2" fx:id="StoplightA2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -320,7 +320,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightB2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightB2" fx:id="StoplightB2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -338,7 +338,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightC2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightC2" fx:id="StoplightC2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -374,7 +374,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightF2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightF2" fx:id="StoplightF2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -392,7 +392,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightH2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightH2" fx:id="StoplightH2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -410,7 +410,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightG2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightG2" fx:id="StoplightG2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -428,7 +428,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightE2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightE2" fx:id="StoplightE2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -446,7 +446,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightI2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightI2" fx:id="StoplightI2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -464,7 +464,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightL2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightL2" fx:id="StoplightL2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -482,7 +482,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightJ2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightJ2" fx:id="StoplightJ2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -500,7 +500,7 @@
                         <Image url="@pictures/buttonback.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="StoplightD2" fx:id="StoplightK2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="StoplightK2" fx:id="StoplightK2" fitHeight="52.0" fitWidth="35.0" layoutX="542.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -515,8 +515,8 @@
         <AnchorPane prefHeight="654.0" prefWidth="103.0">
             <children>
                 <Text layoutX="83.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Scale" wrappingWidth="67.13671875" />
-                <Slider id="timeScaleSlider" fx:id="timeScaleSlider" layoutX="55.0" layoutY="51.0" max="10" min="1" prefHeight="14.0" prefWidth="92.0" />
-                <TextField id="timeScaleText" fx:id="timeScaleText" layoutX="146.0" layoutY="45.0" prefHeight="25.0" prefWidth="35.0" text="2" />
+                <Slider id="timeScaleSlider" fx:id="timeScaleSlider" blockIncrement="5.0" layoutX="55.0" layoutY="51.0" max="5.0" min="1" prefHeight="14.0" prefWidth="92.0" />
+                <TextField id="timeScaleText" fx:id="timeScaleText" layoutX="146.0" layoutY="45.0" prefHeight="25.0" prefWidth="35.0" text="1" />
                 <ToggleButton id="toggleSwitch" fx:id="toggleSwitch" layoutX="98.0" layoutY="602.0" mnemonicParsing="false" text="Start" />
                 <Text layoutX="41.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             </children></AnchorPane>
