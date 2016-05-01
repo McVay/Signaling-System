@@ -5,12 +5,9 @@ import java.net.URL;
 import java.util.*;
 
 import com.plp.signalingsystem.model.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Slider;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.*;
@@ -28,9 +25,6 @@ public class GUIController implements Initializable {
 
     @FXML
     private TextField timeScaleText;
-
-    @FXML
-    private SplitPane splitPane;
 
     @FXML
     private GridPane grid;

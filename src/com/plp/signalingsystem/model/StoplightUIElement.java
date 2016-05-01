@@ -14,15 +14,7 @@ public class StoplightUIElement {
         return mGridLight;
     }
 
-    public void setGridLight(ImageView gridLight) {
-        mGridLight = gridLight;
-    }
-
     public ImageView getRoadLight() {
         return mRoadLight;
-    }
-
-    public void setRoadLight(ImageView roadLight) {
-        mRoadLight = roadLight;
     }
 }

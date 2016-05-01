@@ -9,24 +9,8 @@ public class LightState {
         return mDuration;
     }
 
-    public void setDuration(int duration) {
-        mDuration = duration;
-    }
-
     public String getLightPattern() {
         return mLightPattern;
-    }
-
-    public void setLightSequence(String lightPattern) {
-        mLightPattern = lightPattern;
-    }
-
-    public String getIntersectionName() {
-        return mIntersectionName;
-    }
-
-    public void setIntersectionName(String intersectionName) {
-        this.mIntersectionName = intersectionName;
     }
 
     public  LightState(String intersectionName, int duration, String lightPattern){
